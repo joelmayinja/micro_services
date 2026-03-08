@@ -13,11 +13,11 @@ Zuul acts as the front door of the Netflix platform. Every request a user makes 
 
 Netflix runs thousands of microservices that are constantly starting and stopping across different servers. Eureka solves the problem of services finding each other. When a service starts, it registers itself with Eureka. When another service needs to communicate with it, it looks it up in Eureka similar to a phone book. This makes the system dynamic and flexible without hardcoded addresses.
 
- Fault Tolerance — Hystrix (Circuit Breaker)
+ Fault Tolerance  Hystrix (Circuit Breaker)
 
 Netflix operates on the assumption that failures will happen. Hystrix implements a "circuit breaker" pattern: if a service like Recommendations fails or becomes too slow, Hystrix cuts off calls to it automatically and returns a fallback response for example, a generic list of popular movies instead of personalised ones. This means one failing service cannot cascade into a full platform outage.
 
- Chaos Engineering — Chaos Monkey
+ Chaos Engineering  Chaos Monkey
 
 Rather than waiting for failures to happen in production, Netflix built a tool called Chaos Monkey that deliberately and randomly shuts down servers in their live production environment. The goal is to continuously test whether the system can survive real-world failures. If the system can handle intentional chaos, it can handle anything. This practice has grown into a broader discipline called Chaos Engineering.
  
